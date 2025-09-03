@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <h3 class="mb-4 text-center">Tạo tài khoản mới</h3>
+
+      <form action="/users/sign_up" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
+          <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Đăng ký</button>
+        </div>
+      </form>
+
+      <div class="text-center mt-3">
+        <a href="/" class="text-muted">← Quay lại trang chủ</a>
+      </div>
+    </div>
+  </div>
+</div>
