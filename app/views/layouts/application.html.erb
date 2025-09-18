@@ -24,16 +24,14 @@
     </ul>
   </nav>
 
-  <div class="container">
-    <% if flash["success"] %>
-      <div class="alert alert-success"><%= flash["success"] %></div>
-    <% elsif flash["error"] %>
-      <div class="alert alert-danger"><%= flash["error"] %></div>
-    <% elsif flash["notice"] %>
-      <div class="alert alert-info"><%= flash["notice"] %></div>
-    <% end %>
-
-    <%= yield %>
+              <% if @flash_message %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <%= @flash_message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% end %>
+            <%= yield %>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

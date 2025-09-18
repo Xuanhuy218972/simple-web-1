@@ -1,6 +1,5 @@
 $LOAD_PATH.unshift << '.'
 require 'lib/frack'
-require 'lib/frack'
 require 'app/controllers/users_controller'
 require 'app/controllers/home_controller'
 require 'app/controllers/sessions_controller'
@@ -17,6 +16,7 @@ use Frack::Router do
     post '/sign_in' => 'sessions#create'
     delete '/sign_out' => 'sessions#destroy'
     get '/users' => 'users#index'
+    post '/users' => 'users#create'
     get "/" => 'home#show'
 end
 

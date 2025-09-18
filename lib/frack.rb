@@ -10,7 +10,7 @@ ActiveRecord::Base.establish_connection(
   adapter:  'postgresql',
   host:     'localhost',
   database: 'simpleweb1',
-  username: 'users', 
+  username: 'userform', 
   password: 'Xuanhuy21@nba' 
 )
 

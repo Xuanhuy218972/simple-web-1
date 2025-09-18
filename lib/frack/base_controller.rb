@@ -5,7 +5,7 @@ module Frack
     def initialize(env)
       @request = Rack::Request.new(env)
       @flash_message = request.session&.delete('flash')
-      @current_user = User.find_by_id request.session['user_id']
+      #@current_user = User.find_by_id request.session['user_id']
     end
 
     def render(view)
@@ -22,4 +22,4 @@ module Frack
       Dir[File.join('app', 'views', "#{path}.html.*")].first
     end
   end
-end
+end 

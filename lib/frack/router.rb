@@ -1,11 +1,13 @@
+require 'byebug'
+
 module Frack
   class Router
     attr_reader :routes, :app
 
-    def initialize(app)
+    def initialize(app, &block)
       @app = app
       @routes = {}
-    instance_eval(&block) if block_given?      
+      instance_eval(&block) if block_given?      
     end
 def call(env)
       path = env['PATH_INFO']
@@ -20,8 +22,8 @@ def call(env)
       end
 
       env['REQUEST_METHOD'] = http_method
-      
-      if mapping = routes[path+http_method]
+      byebug
+      if mapping = routes[path]
         env.merge!(controller_action(mapping))
         app.call(env)
       else
@@ -33,8 +35,8 @@ def call(env)
       Hash[%w(controller action).zip mapping.split('#')]
     end
 
-    def push(route)
-      self.routes.merge!(route.keys.first + 'PUSH' => route.values.first  )
+    def put(route)
+      self.routes.merge!(route.keys.first + 'PUT' => route.values.first  )
     end
 
     def delete(route)
